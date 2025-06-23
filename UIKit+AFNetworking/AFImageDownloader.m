@@ -24,7 +24,11 @@
 #if TARGET_OS_IOS || TARGET_OS_TV
 
 #import "AFImageDownloader.h"
+#if __has_include(<AFNetworking/AFNetworking.h>)
+#import <AFNetworking/AFHTTPSessionManager.h>
+#else
 #import "AFHTTPSessionManager.h"
+#endif
 
 @interface AFImageDownloaderResponseHandler : NSObject
 @property (nonatomic, strong) NSUUID *uuid;

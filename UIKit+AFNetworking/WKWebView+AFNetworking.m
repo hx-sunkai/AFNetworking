@@ -25,9 +25,16 @@
 
 #if TARGET_OS_IOS
 
+#if __has_include(<AFNetworking/AFNetworking.h>)
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import <AFNetworking/AFURLResponseSerialization.h>
+#import <AFNetworking/AFURLRequestSerialization.h>
+#else
 #import "AFHTTPSessionManager.h"
 #import "AFURLResponseSerialization.h"
 #import "AFURLRequestSerialization.h"
+#endif
+
 
 @interface WKWebView (_AFNetworking)
 @property (readwrite, nonatomic, strong, setter = af_setURLSessionTask:) NSURLSessionDataTask *af_URLSessionTask;

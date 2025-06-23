@@ -25,7 +25,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AFAutoPurgingImageCache.h"
+#if __has_include(<AFNetworking/AFNetworking.h>)
+#import <AFNetworking/AFHTTPSessionManager.h>
+#else
 #import "AFHTTPSessionManager.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
